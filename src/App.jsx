@@ -55,17 +55,17 @@ function App() {
 
       <section className={styles.heroSection}>
         <div className={styles.countContainer}>
-          <p className={styles.countTitle}>まりなとゆうや<br />今日で付き合って</p>
+          <p className={styles.countTitle}>まりなとゆうや<br />付き合って今日で</p>
           <h1 className={styles.countMain}>
             <span className={styles.countNumber}>{totalDays}</span>
             <span className={styles.countUnit}>日目</span>
           </h1>
           <p className={styles.countSub}>
             {years > 0
-              ? `${years}年 ${months}ヶ月と${days}日`
+              ? `${years}年 ${months}ヶ月と${days}日！`
               : months > 0
-                ? `${months}ヶ月と${days}日`
-                : `${days}日`}
+                ? `${months}ヶ月と${days}日！`
+                : `${days}日！`}
           </p>
           <p className={styles.countDate}>2026.2.15 〜</p>
         </div>
