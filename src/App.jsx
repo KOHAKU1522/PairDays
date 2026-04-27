@@ -3,7 +3,7 @@ import styles from "./App.module.css";
 import { photos } from "./data";
 
 const START_DATE = new Date(2026, 1, 15); // 2026/2/15
-const NUMBER_OF_PHOTOS = 20;
+const NUMBER_OF_PHOTOS = 6;
 
 function getRandomPhotos(arr, count) {
   return [...arr].sort(() => Math.random() - 0.5).slice(0, count);
