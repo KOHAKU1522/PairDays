@@ -37,7 +37,6 @@ export const photos = [
     "/photo36.JPG",
     "/photo37.jpeg",
     "/photo38.jpeg",
-    "/photo39.jpeg",
     "/photo40.JPG",
 ];
 
