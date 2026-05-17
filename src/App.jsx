@@ -4,7 +4,6 @@ import { photos } from "./data";
 
 const START_DATE = new Date(2026, 1, 15); // 2026/2/15
 const NUMBER_OF_PHOTOS = 6;
-
 function getRandomPhotos(arr, count) {
   return [...arr].sort(() => Math.random() - 0.5).slice(0, count);
 }
@@ -14,7 +13,7 @@ function calcDaysSince(start) {
   today.setHours(0, 0, 0, 0);
   const s = new Date(start);
   s.setHours(0, 0, 0, 0);
-  return Math.floor((today - s) / 86400000) + 1;
+  return Math.floor((today - s) / 86400000);
 }
 
 function calcYearsMonthsDays(start) {
@@ -38,6 +37,10 @@ function calcYearsMonthsDays(start) {
   return { years, months, days };
 }
 
+function reloadPage() {
+  window.location.reload();
+}
+
 // 写真の掲示枚数設定
 const randomPhotos = getRandomPhotos(photos, NUMBER_OF_PHOTOS);
 
@@ -47,11 +50,37 @@ const { years, months, days } = calcYearsMonthsDays(START_DATE);
 const now = new Date();
 const todayLabel = `${now.getFullYear()}.${now.getMonth() + 1}.${now.getDate()}`;
 
+let yearsDisplay = "";
+if (years > 0) {
+  yearsDisplay = years + "年";
+}
+
+let monthsDisplay = "";
+if (months > 0) {
+  monthsDisplay = months + "ヶ月";
+}
+
+let daysDisplay = "";
+if (days > 0) {
+  daysDisplay = "と" + days + "日";
+}
+
+const countDisplay = yearsDisplay + monthsDisplay + daysDisplay + "！";
+
 function App() {
   return (
     <div className={styles.pageWrapper}>
 
       <p className={styles.todayDate}>{todayLabel}</p>
+
+      <button className={styles.reloadButton}
+        onClick={reloadPage}
+      >
+        <img className={styles.reloadButtonImage}
+          src="public/reloadButton.png"
+          alt="chara"
+        />
+      </button>
 
       <section className={styles.heroSection}>
         <div className={styles.countContainer}>
@@ -61,11 +90,7 @@ function App() {
             <span className={styles.countUnit}>日目</span>
           </h1>
           <p className={styles.countSub}>
-            {years > 0
-              ? `${years}年 ${months}ヶ月と${days}日！`
-              : months > 0
-                ? `${months}ヶ月と${days}日！`
-                : `${days}日！`}
+            {countDisplay}
           </p>
           <p className={styles.countDate}>2026.2.15 〜</p>
         </div>
