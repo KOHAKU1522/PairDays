@@ -77,7 +77,7 @@ function App() {
         onClick={reloadPage}
       >
         <img className={styles.reloadButtonImage}
-          src="public/reloadButton.png"
+          src="/reloadButton.png"
           alt="chara"
         />
       </button>
